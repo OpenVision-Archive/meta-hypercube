@@ -2,6 +2,8 @@ DESCRIPTION = "uboot tools for ${MACHINE}"
 SECTION = "base"
 LICENSE = "CLOSED"
 
+COMPATIBLE_MACHINE = "su980"
+
 PV = "20181006"
 
 SRC_URI = "https://raw.githubusercontent.com/PLi-metas/hypercube-files/master/${MACHINE}-uboot-tools-${PV}.zip"
