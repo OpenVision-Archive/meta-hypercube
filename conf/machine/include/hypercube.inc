@@ -3,7 +3,7 @@ include conf/machine/include/build-extras.inc
 
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "\
 	${MACHINE}-dvb-modules \
-"
+	"
 
 EXTRA_IMAGEDEPENDS += "\
 	${MACHINE}-uboot-tools \
@@ -34,8 +34,8 @@ IMAGE_CMD_jffs2_append = "; \
 	cp -a boot.bin loader.bin upgrade.scr ${MACHINE}/; \
 	cp -L ${KERNEL_IMAGETYPE}-${MACHINE}.bin ${MACHINE}/${UPDATE_DIR}/e2-kernel.bin; \
 	cp -a ${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.jffs2 ${MACHINE}/${UPDATE_DIR}/e2-rootfs.jffs2; \
-        zip -r ${IMAGE_NAME}_usb.zip ${MACHINE}/*; \
-        "
+	zip -r ${IMAGE_NAME}_usb.zip ${MACHINE}/*; \
+	"
 
 MACHINE_FEATURES += "alsa 32bpp hdtv usbhost wifi 3dtv ci wifiusblegacy legacykernel oldkernel"
 
