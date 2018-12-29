@@ -6,7 +6,7 @@ COMPATIBLE_MACHINE = "su980"
 
 PV = "20181006"
 
-SRC_URI = "https://raw.githubusercontent.com/PLi-metas/hypercube-files/master/${MACHINE}-uboot-tools-${PV}.zip"
+SRC_URI = "https://raw.githubusercontent.com/OpenVisionE2/hypercube-files/master/${MACHINE}-uboot-tools-${PV}.zip"
 
 FILES_${PN} = "${bindir}/*"
 

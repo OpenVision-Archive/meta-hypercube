@@ -6,7 +6,7 @@ COMPATIBLE_MACHINE = "su980"
 
 PV = "20140321"
 
-SRC_URI = "https://raw.githubusercontent.com/PLi-metas/hypercube-files/master/${MACHINE}-user-libs-${PV}.tar.gz"
+SRC_URI = "https://raw.githubusercontent.com/OpenVisionE2/hypercube-files/master/${MACHINE}-user-libs-${PV}.tar.gz"
 
 SRC_URI[md5sum] = "7dc15feab7fb25df67dc8e5289e369a6"
 SRC_URI[sha256sum] = "46c70c043f0271ba0de6c32e51440e128ac46bb34b59acbf164b4205bf3a57ac"

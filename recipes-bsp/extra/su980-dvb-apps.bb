@@ -3,7 +3,7 @@ require conf/license/license-gplv2.inc
 
 COMPATIBLE_MACHINE = "su980"
 
-SRC_URI = "https://raw.githubusercontent.com/PLi-metas/hypercube-files/master/dvb-apps-master.tar.gz"
+SRC_URI = "https://raw.githubusercontent.com/OpenVisionE2/hypercube-files/master/dvb-apps-master.tar.gz"
 
 SRC_URI[md5sum] = "da58c5b5bccf868c1c7a1027df9b9be6"
 SRC_URI[sha256sum] = "65c41351bc1490aa216ef3e23c1092ef36bf0562b0605465d6be40502789948c"

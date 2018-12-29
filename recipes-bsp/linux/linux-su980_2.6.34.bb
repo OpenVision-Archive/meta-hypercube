@@ -34,9 +34,9 @@ DEPENDS += "virtual/${TARGET_PREFIX}gcc"
 
 SRC_URI = "\
 	${KERNELORG_MIRROR}/linux/kernel/v${PV}/linux-${PV}.tar.bz2;name=kernel \
-	https://raw.githubusercontent.com/PLi-metas/hypercube-files/master/boot.bin;name=boot \
-	https://raw.githubusercontent.com/PLi-metas/hypercube-files/master/loader.bin;name=loader \
-	https://raw.githubusercontent.com/PLi-metas/hypercube-files/master/upgrade.scr;name=upgrade \
+	https://raw.githubusercontent.com/OpenVisionE2/hypercube-files/master/boot.bin;name=boot \
+	https://raw.githubusercontent.com/OpenVisionE2/hypercube-files/master/loader.bin;name=loader \
+	https://raw.githubusercontent.com/OpenVisionE2/hypercube-files/master/upgrade.scr;name=upgrade \
 	file://defconfig \
 	file://100-arm-linux.patch \
 	file://101-apollo_stb.patch \

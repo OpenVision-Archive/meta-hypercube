@@ -13,7 +13,7 @@ S = "${WORKDIR}"
 inherit module update-rc.d
 KERNEL_MODULES_META_PACKAGE = "None"
 
-SRC_URI = "https://raw.githubusercontent.com/PLi-metas/hypercube-files/master/${MACHINE}-dvb-modules-${PV}.tar.gz"
+SRC_URI = "https://raw.githubusercontent.com/OpenVisionE2/hypercube-files/master/${MACHINE}-dvb-modules-${PV}.tar.gz"
 
 SRC_URI[md5sum] = "a2f9c1870a17c62f4eea6f3f4ff5ba1d"
 SRC_URI[sha256sum] = "5404e35f21a232e3db691933bd833a0362272ae801087dab78cc81c24b51ba95"
