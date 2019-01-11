@@ -40,6 +40,7 @@ IMAGE_DEPENDS_su980-usbimg = " \
     mtools-native:do_populate_sysroot \
     dosfstools-native:do_populate_sysroot \
     virtual/kernel:do_populate_sysroot \
+    e2fsprogs-native:do_populate_sysroot \
 "
 
 # USB image name
@@ -58,6 +59,15 @@ FATPAYLOAD ?= ""
 IMAGEDATESTAMP = "${@time.strftime('%Y.%m.%d',time.gmtime())}"
 
 IMAGE_CMD_su980-usbimg () {
+	# Cleanup old stuff
+	rm -f "${USBIMG_ROOTFS}"
+	rm -f "${USBIMG}"
+	rm -f ${WORKDIR}/boot.img
+
+	# Create ext-fs image
+	dd if=/dev/zero of="${USBIMG_ROOTFS}" seek=${ROOTFS_SIZE} count=0 bs=1024
+	mkfs.${USBIMG_ROOTFS_TYPE} -F -i 4096 "${USBIMG_ROOTFS}" -d "${IMAGE_ROOTFS}"
+
 	# Align partitions
 	BOOT_SPACE_ALIGNED=$(expr ${BOOT_SPACE} + ${IMAGE_ROOTFS_ALIGNMENT} - 1)
 	BOOT_SPACE_ALIGNED=$(expr ${BOOT_SPACE_ALIGNED} - ${BOOT_SPACE_ALIGNED} % ${IMAGE_ROOTFS_ALIGNMENT})
@@ -82,7 +92,6 @@ IMAGE_CMD_su980-usbimg () {
 	parted ${USBIMG} print
 
 	# Create a vfat image with boot files
-	cp ${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.ext3 ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.ext3
 	BOOT_BLOCKS=$(LC_ALL=C parted -s ${USBIMG} unit b print | awk '/ 1 / { print substr($4, 1, length($4 -1)) / 512 /2 }')
 	mkfs.vfat -n "${BOOTDD_VOLUME_ID}" -S 512 -C ${WORKDIR}/boot.img $BOOT_BLOCKS
 	cp -f ${WORKDIR}/boot.img ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}-${MACHINE}.bin
@@ -108,6 +117,8 @@ IMAGE_CMD_su980-usbimg () {
 	else
 		dd if=${USBIMG_ROOTFS} of=${USBIMG} conv=notrunc seek=1 bs=$(expr 1024 \* ${BOOT_SPACE_ALIGNED} + ${IMAGE_ROOTFS_ALIGNMENT} \* 1024)
 	fi
+
+	parted ${USBIMG} print
 
 	# ensure that the image is a sparse file
 	cp -a --sparse=always "${USBIMG}" "${USBIMG}".sparse

@@ -18,7 +18,7 @@ MACHINE_EXTRA_RDEPENDS += "\
 
 DVBMEDIASINK_CONFIG = "--with-dts --with-limited-mpeg4v2 --with-eac3 --with-wma --with-wmv --with-pcm"
 
-IMAGE_FSTYPES ?= "jffs2 ext3 su980-usbimg"
+IMAGE_FSTYPES ?= "jffs2 su980-usbimg"
 
 IMAGE_CLASSES += "usb_image-su980"
 
@@ -30,7 +30,8 @@ UPDATE_DIR ?= "e2"
 # TODO: this needs fixing...
 IMAGE_CMD_jffs2_append = "; \
 	cd ${DEPLOY_DIR_IMAGE}; \
-	mkdir ${MACHINE} ${MACHINE}/${UPDATE_DIR}; \
+	rm -Rf ${MACHINE}; \
+	mkdir -p ${MACHINE}/${UPDATE_DIR}; \
 	cp -a boot.bin loader.bin upgrade.scr ${MACHINE}/; \
 	cp -L ${KERNEL_IMAGETYPE}-${MACHINE}.bin ${MACHINE}/${UPDATE_DIR}/e2-kernel.bin; \
 	cp -a ${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.jffs2 ${MACHINE}/${UPDATE_DIR}/e2-rootfs.jffs2; \
