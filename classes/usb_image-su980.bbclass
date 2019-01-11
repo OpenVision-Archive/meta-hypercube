@@ -44,7 +44,7 @@ IMAGE_DEPENDS_su980-usbimg = " \
 "
 
 # USB image name
-USBIMG = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.su980-usbimg"
+USBIMG = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.su980-usbimg.img"
 
 # Compression method to apply to USBIMG after it has been created. Supported
 # compression formats are "gzip", "bzip2" or "xz". The original .*-usbimg file
@@ -123,19 +123,10 @@ IMAGE_CMD_su980-usbimg () {
 	# ensure that the image is a sparse file
 	cp -a --sparse=always "${USBIMG}" "${USBIMG}".sparse
 	mv "${USBIMG}".sparse "${USBIMG}"
-
-	# Optionally apply compression
-	case "${USBIMG_COMPRESSION}" in
-	"gzip")
-		gzip -k9 "${USBIMG}"
-		;;
-	"bzip2")
-		bzip2 -k9 "${USBIMG}"
-		;;
-	"xz")
-		xz -k "${USBIMG}"
-		;;
-	esac
+	# Compress and cleanup
+	zip -9 "${USBIMG}".zip "${USBIMG}"
+	rm -f "${USBIMG}"
+	rm -f "${USBIMG_ROOTFS}"
 }
 
 # ROOTFS_POSTPROCESS_COMMAND += ""
