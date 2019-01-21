@@ -124,7 +124,7 @@ IMAGE_CMD_su980-usbimg () {
 	cp -a --sparse=always "${USBIMG}" "${USBIMG}".sparse
 	mv "${USBIMG}".sparse "${USBIMG}"
 	# Compress and cleanup
-	zip -9 "${USBIMG}".zip "${USBIMG}"
+	zip -j -9 "${USBIMG}".zip "${USBIMG}"
 	rm -f "${USBIMG}"
 	rm -f "${USBIMG_ROOTFS}"
 }
