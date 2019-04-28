@@ -1,6 +1,8 @@
 # We know about rtc
 include conf/machine/include/build-extras.inc
 
+BOX_BRAND = "hypercube"
+
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "\
 	${MACHINE}-dvb-modules \
 	"
