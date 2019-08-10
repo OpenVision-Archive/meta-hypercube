@@ -72,12 +72,12 @@ do_configure() {
 
 do_install() {
     make DESTDIR=${D} install
-	install -d ${D}/${bindir}
+    install -d ${D}/${bindir}
 
     install -d ${D}/${docdir}/dvb-apps
     install -d ${D}/${docdir}/dvb-apps/scan
     install -d ${D}/${docdir}/dvb-apps/szap
-	chmod a+rx ${D}/${libdir}/*.so*
+    chmod a+rx ${D}/${libdir}/*.so*
  
     # Install tests
 
@@ -102,9 +102,9 @@ do_install() {
 }
 
 python_populate_packages_prepend () {
-	dvb_libdir = bb.data.expand('${libdir}', d)
-	do_split_packages(d, dvb_libdir, '^lib(.*)\.so$', 'lib%s', 'DVB %s package', extra_depends='', allow_links=True)
-	do_split_packages(d, dvb_libdir, '^lib(.*)\.la$', 'lib%s-dev', 'DVB %s development package', extra_depends='${PN}-dev')
-	do_split_packages(d, dvb_libdir, '^lib(.*)\.a$', 'lib%s-dev', 'DVB %s development package', extra_depends='${PN}-dev')
-	do_split_packages(d, dvb_libdir, '^lib(.*)\.so\.*', 'lib%s', 'DVB %s library', extra_depends='', allow_links=True)
+    dvb_libdir = bb.data.expand('${libdir}', d)
+    do_split_packages(d, dvb_libdir, '^lib(.*)\.so$', 'lib%s', 'DVB %s package', extra_depends='', allow_links=True)
+    do_split_packages(d, dvb_libdir, '^lib(.*)\.la$', 'lib%s-dev', 'DVB %s development package', extra_depends='${PN}-dev')
+    do_split_packages(d, dvb_libdir, '^lib(.*)\.a$', 'lib%s-dev', 'DVB %s development package', extra_depends='${PN}-dev')
+    do_split_packages(d, dvb_libdir, '^lib(.*)\.so\.*', 'lib%s', 'DVB %s library', extra_depends='', allow_links=True)
 }
