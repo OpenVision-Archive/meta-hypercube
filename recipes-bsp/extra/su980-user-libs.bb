@@ -2,7 +2,7 @@ DESCRIPTION = "User space libs for ${MACHINE}"
 SECTION = "base"
 LICENSE = "CLOSED"
 
-COMPATIBLE_MACHINE = "su980"
+COMPATIBLE_MACHINE = "^(su980)$"
 
 PV = "20140321"
 

@@ -2,7 +2,7 @@ DESCRIPTION = "uboot tools for ${MACHINE}"
 SECTION = "base"
 LICENSE = "CLOSED"
 
-COMPATIBLE_MACHINE = "su980"
+COMPATIBLE_MACHINE = "^(su980)$"
 
 PV = "20181006"
 

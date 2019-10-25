@@ -1,7 +1,7 @@
 HOMEPAGE = "http://www.linuxtv.org"
 require conf/license/license-gplv2.inc
 
-COMPATIBLE_MACHINE = "su980"
+COMPATIBLE_MACHINE = "^(su980)$"
 
 SRC_URI = "https://raw.githubusercontent.com/OpenVisionE2/hypercube-files/master/dvb-apps-master.tar.gz"
 

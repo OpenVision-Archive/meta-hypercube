@@ -4,7 +4,7 @@ LICENSE = "GPLv2"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-COMPATIBLE_MACHINE = "su980"
+COMPATIBLE_MACHINE = "^(su980)$"
 
 inherit kernel machine_kernel_pr
 
