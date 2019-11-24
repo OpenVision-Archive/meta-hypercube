@@ -16,7 +16,7 @@ SRC_URI[md5sum] = "a4c34f141630f96353a3b884679e4709"
 SRC_URI[sha256sum] = "8bf7cf02dbd8fa516667ad924fbd1e52643a8fe90ba2af87fe2a2ba0ef1b6b17"
 
 FILES_${PN} += " \
-	${base_libdir}/* \
+	${nonarch_base_libdir}/* \
 	${sysconfdir}/* \
 	"
 

@@ -19,7 +19,7 @@ SRC_URI[md5sum] = "a2f9c1870a17c62f4eea6f3f4ff5ba1d"
 SRC_URI[sha256sum] = "5404e35f21a232e3db691933bd833a0362272ae801087dab78cc81c24b51ba95"
 
 FILES_${PN} += " \
-	${base_libdir}/* \
+	${nonarch_base_libdir}/* \
 	${sysconfdir}/* \
 	"
 
@@ -35,8 +35,8 @@ do_install() {
 		install -m 0644 ${WORKDIR}/$f ${D}/lib/modules/${KV}/extra/$f;
 	done
 
-	install -d ${D}/${base_libdir}/firmware
-	install -m 644 ${WORKDIR}/firmware/* ${D}/${base_libdir}/firmware/
+	install -d ${D}/${nonarch_base_libdir}/firmware
+	install -m 644 ${WORKDIR}/firmware/* ${D}/${nonarch_base_libdir}/firmware/
 
 	install -d ${D}/${sysconfdir}/Wireless/RT2870STA
 	install -m 644 ${WORKDIR}/RT2870STA.dat ${D}/${sysconfdir}/Wireless/RT2870STA
