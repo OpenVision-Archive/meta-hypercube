@@ -36,7 +36,7 @@ IMAGE_CMD_jffs2_append = "; \
 	mkdir -p ${MACHINE}/${UPDATE_DIR}; \
 	cp -a boot.bin loader.bin upgrade.scr ${MACHINE}/; \
 	cp -L ${KERNEL_IMAGETYPE}-${MACHINE}.bin ${MACHINE}/${UPDATE_DIR}/e2-kernel.bin; \
-	cp -a ${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.jffs2 ${MACHINE}/${UPDATE_DIR}/e2-rootfs.jffs2; \
+	cp -a ${IMGDEPLOYDIR}/${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.jffs2 ${MACHINE}/${UPDATE_DIR}/e2-rootfs.jffs2; \
 	zip -r ${IMAGE_NAME}_usb.zip ${MACHINE}/*; \
 	rm -rf ${MACHINE}; \
 	"

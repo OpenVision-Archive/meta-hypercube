@@ -33,7 +33,7 @@ IMAGE_ROOTFS_ALIGNMENT = "1024"
 
 # Use an uncompressed ext3 by default as rootfs
 USBIMG_ROOTFS_TYPE ?= "ext3"
-USBIMG_ROOTFS = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.${USBIMG_ROOTFS_TYPE}"
+USBIMG_ROOTFS = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.${USBIMG_ROOTFS_TYPE}"
 
 IMAGE_DEPENDS_su980-usbimg = " \
     parted-native:do_populate_sysroot \
@@ -44,7 +44,7 @@ IMAGE_DEPENDS_su980-usbimg = " \
 "
 
 # USB image name
-USBIMG = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.su980-usbimg.img"
+USBIMG = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.su980-usbimg.img"
 
 # Compression method to apply to USBIMG after it has been created. Supported
 # compression formats are "gzip", "bzip2" or "xz". The original .*-usbimg file
