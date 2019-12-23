@@ -31,6 +31,7 @@ UPDATE_DIR ?= "e2"
 
 # TODO: this needs fixing...
 IMAGE_CMD_jffs2_append = "; \
+	rm -f ${DEPLOY_DIR_IMAGE}/*.zip; \
 	cd ${DEPLOY_DIR_IMAGE}; \
 	rm -rf ${MACHINE}; \
 	mkdir -p ${MACHINE}/${UPDATE_DIR}; \
