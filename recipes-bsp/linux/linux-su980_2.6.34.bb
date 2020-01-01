@@ -105,7 +105,7 @@ KERNEL_OUTPUT = "vmlinux"
 KERNEL_IMAGETYPE = "vmlinux"
 KERNEL_IMAGEDEST = "tmp"
 
-FILES_kernel-image = "${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}-${KERNEL_VERSION}*"
+FILES_${KERNEL_PACKAGE_NAME}-image = "/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}-${KERNEL_VERSION}*"
 
 kernel_do_deploy_append() {
 	cp -a ${WORKDIR}/boot.bin ${WORKDIR}/loader.bin ${WORKDIR}/upgrade.scr ${DEPLOYDIR}/
