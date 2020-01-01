@@ -87,7 +87,6 @@ SRC_URI = "\
 	file://sen5_fix_network_tx_crash.patch \
 	file://sen5_s25fl129p_spi_flash.patch \
 	file://0001-ARM-6329-1-wire-up-sys_accept4-on-ARM.patch \
-	file://kernel-add-support-for-gcc6.patch \
 	file://fix_return_address_warning.patch \
 	file://rtl8712-fix-warnings.patch \
 	file://rtl8187se-fix-warnings.patch \
