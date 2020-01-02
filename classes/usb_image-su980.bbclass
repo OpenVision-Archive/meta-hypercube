@@ -35,13 +35,13 @@ IMAGE_ROOTFS_ALIGNMENT = "1024"
 USBIMG_ROOTFS_TYPE ?= "ext3"
 USBIMG_ROOTFS = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.${USBIMG_ROOTFS_TYPE}"
 
-IMAGE_DEPENDS_su980-usbimg = " \
-    parted-native:do_populate_sysroot \
-    mtools-native:do_populate_sysroot \
-    dosfstools-native:do_populate_sysroot \
-    virtual/kernel:do_populate_sysroot \
-    e2fsprogs-native:do_populate_sysroot \
-"
+do_image_su980-usbimg[depends] = " \
+	parted-native:do_populate_sysroot \
+	mtools-native:do_populate_sysroot \
+	dosfstools-native:do_populate_sysroot \
+	virtual/kernel:do_populate_sysroot \
+	e2fsprogs-native:do_populate_sysroot \
+	"
 
 # USB image name
 USBIMG = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.su980-usbimg.img"
