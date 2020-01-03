@@ -32,6 +32,8 @@ RPROVIDES_${KERNEL_PACKAGE_NAME}-image = "${KERNEL_PACKAGE_NAME}-image-${KERNEL_
 
 DEPENDS += "virtual/${TARGET_PREFIX}gcc"
 
+KERNEL_CONFIG_COMMAND = "oe_runmake -C ${S} O=${B} oldconfig"
+
 SRC_URI = "\
 	${KERNELORG_MIRROR}/linux/kernel/v${PV}/linux-${PV}.tar.bz2;name=kernel \
 	https://raw.githubusercontent.com/OpenVisionE2/hypercube-files/master/boot.bin;name=boot \
@@ -95,6 +97,7 @@ SRC_URI = "\
 	"
 
 S = "${WORKDIR}/linux-${PV}"
+B = "${WORKDIR}/build"
 
 inherit kernel
 

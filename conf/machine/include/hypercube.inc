@@ -3,6 +3,16 @@ include conf/machine/include/build-extras.inc
 
 BOX_BRAND = "hypercube"
 
+KERNEL_MODULE_AUTOLOAD += "nls-iso8859-1"
+KERNEL_MODULE_AUTOLOAD += "nls-iso8859-15"
+KERNEL_MODULE_AUTOLOAD += "nls-cp437"
+KERNEL_MODULE_AUTOLOAD += "nls-cp850"
+KERNEL_MODULE_AUTOLOAD += "exportfs"
+KERNEL_MODULE_AUTOLOAD += "iso9660"
+KERNEL_MODULE_AUTOLOAD += "udf"
+KERNEL_MODULE_AUTOLOAD += "cdfs"
+KERNEL_MODULE_AUTOLOAD += "ntfs"
+
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "\
 	${MACHINE}-dvb-modules \
 	"
@@ -62,7 +72,11 @@ PREFERRED_VERSION_wscan = "20130331"
 
 OLDEST_KERNEL = "2.6.34"
 GCCVERSION = "4.9.4"
-GLIBCVERSION = "2.19"
+GLIBCVERSION = "2.25"
+
+PREFERRED_VERSION_cross-localedef-native = "2.30"
+
+HOSTTOOLS_NONFATAL += "whoami"
 
 GLIBC_EXTRA_OECONF = "--with-tls --with-__thread"
 
