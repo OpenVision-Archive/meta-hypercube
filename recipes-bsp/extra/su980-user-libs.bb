@@ -25,7 +25,6 @@ do_install() {
 # The compiled binaries don't provide sonames.
 SOLIBS = "${SOLIBSDEV}"
 
-INSANE_SKIP_${PN} = "ldflags"
 
 # do not put the *.so into -dev package
 FILES_${PN}-dev = ""
