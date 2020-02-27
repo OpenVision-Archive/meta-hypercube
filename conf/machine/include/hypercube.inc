@@ -1,5 +1,5 @@
 # We know about rtc
-include conf/machine/include/build-extras.inc
+require conf/machine/include/build-extras.inc
 
 BOX_BRAND = "hypercube"
 
@@ -46,8 +46,8 @@ MACHINE_FEATURES += "alsa 32bpp hdtv usbhost wifi 3dtv ci wifiusblegacy legacyke
 
 DVBPROVIDER = "kernel"
 
-include conf/machine/include/autoload-filesystems.inc
-include conf/machine/include/autoload-usbserial.inc
+require conf/machine/include/autoload-filesystems.inc
+require conf/machine/include/autoload-usbserial.inc
 
 KERNEL_IMAGETYPE ?= "Image"
 
