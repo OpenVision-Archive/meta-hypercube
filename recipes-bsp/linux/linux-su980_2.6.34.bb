@@ -38,6 +38,7 @@ SRC_URI = "\
 	https://raw.githubusercontent.com/OpenVisionE2/hypercube-files/master/loader.bin;name=loader \
 	https://raw.githubusercontent.com/OpenVisionE2/hypercube-files/master/upgrade.scr;name=upgrade \
 	file://defconfig \
+	file://${OPENVISION_BASE}/openvision-oe/recipes-linux/kernel-patches/kernel-add-support-for-gcc6.patch \
 	file://100-arm-linux.patch \
 	file://101-apollo_stb.patch \
 	file://102-unionfs-2.5.4.patch \
@@ -87,7 +88,6 @@ SRC_URI = "\
 	file://sen5_fix_network_tx_crash.patch \
 	file://sen5_s25fl129p_spi_flash.patch \
 	file://0001-ARM-6329-1-wire-up-sys_accept4-on-ARM.patch \
-	file://kernel-add-support-for-gcc6.patch \
 	file://fix_return_address_warning.patch \
 	file://rtl8712-fix-warnings.patch \
 	file://rtl8187se-fix-warnings.patch \
