@@ -1407,7 +1407,7 @@ CONFIG_USB_LIBUSUAL=y
 #
 # USB port drivers
 #
-# CONFIG_USB_SERIAL is not set
+CONFIG_USB_SERIAL=m
 
 #
 # USB Miscellaneous drivers
