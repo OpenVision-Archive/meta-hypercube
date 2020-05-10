@@ -10,7 +10,7 @@ SRC_URI[sha256sum] = "65c41351bc1490aa216ef3e23c1092ef36bf0562b0605465d6be405027
 
 S = "${WORKDIR}/dvb-apps-master"
 
-PACKAGES =+ "dvb-evtest dvb-evtest-dbg \
+PACKAGES += "dvb-evtest dvb-evtest-dbg \
              dvbapp-tests dvbapp-tests-dbg \
              dvbdate dvbdate-dbg \
              dvbtraffic dvbtraffic-dbg \
