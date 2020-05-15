@@ -38,7 +38,7 @@ SRC_URI = "\
 	https://raw.githubusercontent.com/OpenVisionE2/hypercube-files/master/loader.bin;name=loader \
 	https://raw.githubusercontent.com/OpenVisionE2/hypercube-files/master/upgrade.scr;name=upgrade \
 	file://defconfig \
-	file://${OPENVISION_BASE}/openvision-oe/recipes-linux/kernel-patches/kernel-add-support-for-gcc6.patch \
+	file://${OPENVISION_BASE}/openvision-oe/recipes-linux/kernel-patches/kernel-add-support-for-gcc${VISIONGCCVERSION}.patch \
 	file://100-arm-linux.patch \
 	file://101-apollo_stb.patch \
 	file://102-unionfs-2.5.4.patch \
