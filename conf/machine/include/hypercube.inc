@@ -39,6 +39,7 @@ IMAGE_CMD_jffs2_append = "; \
 	cp -L ${KERNEL_IMAGETYPE}-${MACHINE}.bin ${MACHINE}/${UPDATE_DIR}/e2-kernel.bin; \
 	cp -a ${IMGDEPLOYDIR}/${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.jffs2 ${MACHINE}/${UPDATE_DIR}/e2-rootfs.jffs2; \
 	zip -r ${IMAGE_NAME}_usb.zip ${MACHINE}/*; \
+	rm -f ${DEPLOY_DIR_IMAGE}/*.jffs2; \
 	rm -rf ${MACHINE}; \
 	"
 
@@ -70,3 +71,13 @@ DEFAULTTUNE = "cortexa9"
 require conf/machine/include/tune-cortexa9.inc
 
 TUNE_CCARGS += "${@bb.utils.contains("TUNE_FEATURES", "cortexa9", "-march=armv7-a -mtune=cortex-a9 -mfpu=vfpv3-d16 -mfloat-abi=softfp", "", d)}"
+
+KERNEL_MODULE_AUTOLOAD += "nls-iso8859-1"
+KERNEL_MODULE_AUTOLOAD += "nls-iso8859-15"
+KERNEL_MODULE_AUTOLOAD += "nls-cp437"
+KERNEL_MODULE_AUTOLOAD += "nls-cp850"
+KERNEL_MODULE_AUTOLOAD += "exportfs"
+KERNEL_MODULE_AUTOLOAD += "iso9660"
+KERNEL_MODULE_AUTOLOAD += "udf"
+KERNEL_MODULE_AUTOLOAD += "cdfs"
+KERNEL_MODULE_AUTOLOAD += "ntfs"
