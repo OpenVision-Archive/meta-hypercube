@@ -47,8 +47,6 @@ MACHINE_FEATURES += "alsa 32bpp hdtv usbhost wifi 3dtv ci wifiusblegacy legacyke
 
 DVBPROVIDER = "kernel"
 
-KERNEL_MODULE_AUTOLOAD += "xfs"
-
 KERNEL_IMAGETYPE ?= "Image"
 
 SERIAL_CONSOLE = "115200 ttyS1"
@@ -71,12 +69,7 @@ require conf/machine/include/tune-cortexa9.inc
 
 TUNE_CCARGS += "${@bb.utils.contains("TUNE_FEATURES", "cortexa9", "-march=armv7-a -mtune=cortex-a9 -mfpu=vfpv3-d16 -mfloat-abi=softfp", "", d)}"
 
-KERNEL_MODULE_AUTOLOAD += "nls-iso8859-1"
-KERNEL_MODULE_AUTOLOAD += "nls-iso8859-15"
-KERNEL_MODULE_AUTOLOAD += "nls-cp437"
-KERNEL_MODULE_AUTOLOAD += "nls-cp850"
-KERNEL_MODULE_AUTOLOAD += "exportfs"
-KERNEL_MODULE_AUTOLOAD += "iso9660"
-KERNEL_MODULE_AUTOLOAD += "udf"
-KERNEL_MODULE_AUTOLOAD += "cdfs"
-KERNEL_MODULE_AUTOLOAD += "ntfs"
+KERNEL_MODULE_AUTOLOAD += "\
+	exportfs \
+	xfs \
+	"
