@@ -43,7 +43,7 @@ IMAGE_CMD_jffs2_append = "; \
 	rm -rf ${MACHINE}; \
 	"
 
-MACHINE_FEATURES += "alsa 32bpp hdtv usbhost wifi 3dtv ci wifiusblegacy legacykernel oldkernel triaccel olde2api"
+MACHINE_FEATURES += "alsa 32bpp usbhost ci oldkernel triaccel olde2api"
 
 DVBPROVIDER = "kernel"
 
