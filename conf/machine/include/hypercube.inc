@@ -27,17 +27,17 @@ IMAGE_CLASSES += "usb_image-su980"
 JFFS2_ERASEBLOCK = "0x20000"
 EXTRA_IMAGECMD_jffs2 = "--disable-compressor=lzo --compression-mode=size"
 
-UPDATE_DIR ?= "e2"
+IMAGEDIR = "${MACHINE}/e2"
 
 # TODO: this needs fixing...
 IMAGE_CMD_jffs2_append = "; \
 	rm -f ${DEPLOY_DIR_IMAGE}/*.zip; \
 	cd ${DEPLOY_DIR_IMAGE}; \
 	rm -rf ${MACHINE}; \
-	mkdir -p ${MACHINE}/${UPDATE_DIR}; \
+	mkdir -p ${IMAGEDIR}; \
 	cp -a boot.bin loader.bin upgrade.scr ${MACHINE}/; \
-	cp -L ${KERNEL_IMAGETYPE}-${MACHINE}.bin ${MACHINE}/${UPDATE_DIR}/e2-kernel.bin; \
-	cp -a ${IMGDEPLOYDIR}/${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.jffs2 ${MACHINE}/${UPDATE_DIR}/e2-rootfs.jffs2; \
+	cp -L ${KERNEL_IMAGETYPE}-${MACHINE}.bin ${IMAGEDIR}/e2-kernel.bin; \
+	cp -a ${IMGDEPLOYDIR}/${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.jffs2 ${IMAGEDIR}/e2-rootfs.jffs2; \
 	zip -r ${IMAGE_NAME}_usb.zip ${MACHINE}/*; \
 	rm -f ${DEPLOY_DIR_IMAGE}/*.jffs2; \
 	rm -rf ${MACHINE}; \
