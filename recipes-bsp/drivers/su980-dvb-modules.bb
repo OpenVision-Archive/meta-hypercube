@@ -2,7 +2,9 @@ DESCRIPTION = "Hardware drivers for ${MACHINE}"
 SECTION = "base"
 PRIORITY = "required"
 LICENSE = "CLOSED"
+
 PACKAGE_ARCH = "${MACHINE_ARCH}"
+
 COMPATIBLE_MACHINE = "^(su980)$"
 
 KV = "2.6.34"
@@ -30,9 +32,9 @@ do_compile() {
 }
 
 do_install() {
-	install -d ${D}/lib/modules/${KV}/extra/
+	install -d ${D}${base_libdir}/modules/${KV}/extra/
 	for f in *.ko; do
-		install -m 0644 ${WORKDIR}/$f ${D}/lib/modules/${KV}/extra/$f;
+		install -m 0644 ${WORKDIR}/$f ${D}${base_libdir}/modules/${KV}/extra/$f;
 	done
 
 	install -d ${D}/${nonarch_base_libdir}/firmware
