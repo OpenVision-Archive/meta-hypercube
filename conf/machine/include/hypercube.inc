@@ -3,6 +3,9 @@ MACHINE_FEATURES_BACKFILL_CONSIDERED += "rtc
 
 BOX_BRAND = "hypercube"
 
+KERNEL_FILE = "e2-kernel.bin"
+ROOTFS_FILE = "e2-rootfs.jffs2"
+
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "\
 	${MACHINE}-dvb-modules \
 	"
@@ -36,8 +39,8 @@ IMAGE_CMD_jffs2_append = "; \
 	rm -rf ${MACHINE}; \
 	mkdir -p ${IMAGEDIR}; \
 	cp -a boot.bin loader.bin upgrade.scr ${MACHINE}/; \
-	cp -L ${KERNEL_IMAGETYPE}-${MACHINE}.bin ${IMAGEDIR}/e2-kernel.bin; \
-	cp -a ${IMGDEPLOYDIR}/${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.jffs2 ${IMAGEDIR}/e2-rootfs.jffs2; \
+	cp -L ${KERNEL_IMAGETYPE}-${MACHINE}.bin ${IMAGEDIR}/${KERNEL_FILE}; \
+	cp -a ${IMGDEPLOYDIR}/${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.jffs2 ${IMAGEDIR}/${ROOTFS_FILE}; \
 	zip -r ${IMAGE_NAME}_usb.zip ${MACHINE}/*; \
 	rm -f ${DEPLOY_DIR_IMAGE}/*.jffs2; \
 	rm -rf ${MACHINE}; \
