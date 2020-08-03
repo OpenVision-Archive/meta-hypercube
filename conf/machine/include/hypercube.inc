@@ -71,8 +71,3 @@ DEFAULTTUNE = "cortexa9"
 require conf/machine/include/tune-cortexa9.inc
 
 TUNE_CCARGS += "${@bb.utils.contains("TUNE_FEATURES", "cortexa9", "-march=armv7-a -mtune=cortex-a9 -mfpu=vfpv3-d16 -mfloat-abi=softfp", "", d)}"
-
-KERNEL_MODULE_AUTOLOAD += "\
-	exportfs \
-	xfs \
-	"
