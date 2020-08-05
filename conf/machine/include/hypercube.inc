@@ -33,7 +33,7 @@ EXTRA_IMAGECMD_jffs2 = "--disable-compressor=lzo --compression-mode=size"
 IMAGEDIR = "${MACHINE}/e2"
 
 # TODO: this needs fixing...
-IMAGE_CMD_jffs2_append = " ; \
+IMAGE_CMD_jffs2_append = "; \
 	rm -f ${DEPLOY_DIR_IMAGE}/*.zip; \
 	cd ${DEPLOY_DIR_IMAGE}; \
 	rm -rf ${MACHINE}; \
