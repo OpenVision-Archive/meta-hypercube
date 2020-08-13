@@ -16,9 +16,9 @@ S = "${WORKDIR}"
 FILES_${PN} = "${libdir}/*"
 
 do_install() {
-	install -d ${D}/${libdir}
+	install -d ${D}${libdir}
 	for f in *.a *.so; do
-		install -m 0644 ${S}/$f ${D}/${libdir}
+		install -m 0644 ${S}/$f ${D}${libdir}
 	done
 }
 

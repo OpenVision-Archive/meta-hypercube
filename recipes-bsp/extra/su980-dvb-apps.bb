@@ -72,12 +72,12 @@ do_configure() {
 
 do_install() {
     make DESTDIR=${D} install
-    install -d ${D}/${bindir}
+    install -d ${D}${bindir}
 
     install -d ${D}/${docdir}/dvb-apps
     install -d ${D}/${docdir}/dvb-apps/scan
     install -d ${D}/${docdir}/dvb-apps/szap
-    chmod a+rx ${D}/${libdir}/*.so*
+    chmod a+rx ${D}${libdir}/*.so*
  
     # Install tests
 

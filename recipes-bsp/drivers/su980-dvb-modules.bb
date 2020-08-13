@@ -36,30 +36,30 @@ do_install() {
 		install -m 0644 ${WORKDIR}/$f ${D}${base_libdir}/modules/${KV}/extra/$f;
 	done
 
-	install -d ${D}/${nonarch_base_libdir}/firmware
-	install -m 644 ${WORKDIR}/firmware/* ${D}/${nonarch_base_libdir}/firmware/
+	install -d ${D}${nonarch_base_libdir}/firmware
+	install -m 644 ${WORKDIR}/firmware/* ${D}${nonarch_base_libdir}/firmware/
 
-	install -d ${D}/${sysconfdir}/Wireless/RT2870STA
-	install -m 644 ${WORKDIR}/RT2870STA.dat ${D}/${sysconfdir}/Wireless/RT2870STA
+	install -d ${D}${sysconfdir}/Wireless/RT2870STA
+	install -m 644 ${WORKDIR}/RT2870STA.dat ${D}${sysconfdir}/Wireless/RT2870STA
 
-	install -d ${D}/${sysconfdir}/modules-load.d
+	install -d ${D}${sysconfdir}/modules-load.d
 	# most other modules depend on the lnx* drivers so sort them first
 	for i in `ls *.ko | sed -e 's/.ko//g'`; do
 		case $i in
-			lnx*)	echo $i >> ${D}/${sysconfdir}/modules-load.d/_${MACHINE}.conf ;;
+			lnx*)	echo $i >> ${D}${sysconfdir}/modules-load.d/_${MACHINE}.conf ;;
 			*) ;;
 		esac
 	done
 	for i in `ls *.ko | sed -e 's/.ko//g'`; do
 		case $i in
 			lnx*) ;;
-			*)	echo $i >> ${D}/${sysconfdir}/modules-load.d/_${MACHINE}.conf ;;
+			*)	echo $i >> ${D}${sysconfdir}/modules-load.d/_${MACHINE}.conf ;;
 		esac
 	done
 
-	install -d ${D}/${sysconfdir}/init.d
-	install -m 755 ${WORKDIR}/${INITSCRIPT_NAME} ${D}/${sysconfdir}/init.d/
+	install -d ${D}${sysconfdir}/init.d
+	install -m 755 ${WORKDIR}/${INITSCRIPT_NAME} ${D}${sysconfdir}/init.d/
 
-	install -d ${D}/${sysconfdir}/modprobe.d
-	install -m 644 ${WORKDIR}/vpmfbDrv.conf ${D}/${sysconfdir}/modprobe.d
+	install -d ${D}${sysconfdir}/modprobe.d
+	install -m 644 ${WORKDIR}/vpmfbDrv.conf ${D}${sysconfdir}/modprobe.d
 }

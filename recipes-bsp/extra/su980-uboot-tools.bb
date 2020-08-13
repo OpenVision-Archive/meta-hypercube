@@ -11,9 +11,9 @@ SRC_URI = "https://raw.githubusercontent.com/OpenVisionE2/hypercube-files/master
 FILES_${PN} = "${bindir}/*"
 
 do_install() {
-	install -d ${D}/${bindir}
-	install -m 0755 ${S}/../getenv ${D}/${bindir}
-	install -m 0755 ${S}/../setenv ${D}/${bindir}
+	install -d ${D}${bindir}
+	install -m 0755 ${S}/../getenv ${D}${bindir}
+	install -m 0755 ${S}/../setenv ${D}${bindir}
 }
 
 SRC_URI[md5sum] = "6480e125421e20484e6b6a480b9cf62f"
