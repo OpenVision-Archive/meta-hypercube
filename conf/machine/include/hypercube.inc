@@ -10,17 +10,14 @@ ROOTFS_FILE = "e2-rootfs.jffs2"
 
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "\
 	${MACHINE}-dvb-modules \
+	${MACHINE}-uboot-tools \
+	${MACHINE}-user-libs \
 	"
 
 EXTRA_IMAGEDEPENDS += "\
 	${MACHINE}-uboot-tools \
 	${MACHINE}-user-libs \
 	${MACHINE}-extra-modules \
-	"
-
-MACHINE_EXTRA_RDEPENDS += "\
-	${MACHINE}-uboot-tools \
-	${MACHINE}-user-libs \
 	"
 
 DVBMEDIASINK_CONFIG = "--with-dts --with-limited-mpeg4v2 --with-eac3 --with-wma --with-wmv --with-pcm"
