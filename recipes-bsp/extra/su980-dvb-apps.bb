@@ -97,8 +97,7 @@ do_install() {
     install -m 0755 ${S}/test/test_pes        ${D}${bindir}/
     install -m 0755 ${S}/test/test_dvr        ${D}${bindir}/
 
-    cp -pPR ${S}/util/szap/channels-conf* ${D}/${docdir}/dvb-apps/szap/
-    cp -pPR ${S}/util/szap/README   ${D}/${docdir}/dvb-apps/szap/
+    cp -fpPR ${S}/util/szap/channels-conf* ${D}/${docdir}/dvb-apps/szap/
 }
 
 python_populate_packages_prepend () {

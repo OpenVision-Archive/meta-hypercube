@@ -107,5 +107,5 @@ KERNEL_IMAGEDEST = "tmp"
 FILES_kernel-image = "/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}-${KERNEL_VERSION}*"
 
 kernel_do_deploy_append() {
-	cp -a ${WORKDIR}/boot.bin ${WORKDIR}/loader.bin ${WORKDIR}/upgrade.scr ${DEPLOYDIR}/
+	cp -fa ${WORKDIR}/boot.bin ${WORKDIR}/loader.bin ${WORKDIR}/upgrade.scr ${DEPLOYDIR}/
 }

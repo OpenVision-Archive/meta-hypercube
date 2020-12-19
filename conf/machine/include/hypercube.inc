@@ -37,9 +37,9 @@ IMAGE_CMD_jffs2_append = "; \
 	cd ${DEPLOY_DIR_IMAGE}; \
 	rm -rf ${MACHINE}; \
 	mkdir -p ${IMAGEDIR}; \
-	cp -a boot.bin loader.bin upgrade.scr ${MACHINE}/; \
-	cp -L ${KERNEL_IMAGETYPE}-${MACHINE}.bin ${IMAGEDIR}/${KERNEL_FILE}; \
-	cp -a ${IMGDEPLOYDIR}/${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.jffs2 ${IMAGEDIR}/${ROOTFS_FILE}; \
+	cp -fa boot.bin loader.bin upgrade.scr ${MACHINE}/; \
+	cp -fL ${KERNEL_IMAGETYPE}-${MACHINE}.bin ${IMAGEDIR}/${KERNEL_FILE}; \
+	cp -fa ${IMGDEPLOYDIR}/${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.jffs2 ${IMAGEDIR}/${ROOTFS_FILE}; \
 	zip -r ${IMAGE_NAME}_usb.zip ${MACHINE}/*; \
 	rm -f ${DEPLOY_DIR_IMAGE}/*.jffs2; \
 	rm -rf ${MACHINE}; \
