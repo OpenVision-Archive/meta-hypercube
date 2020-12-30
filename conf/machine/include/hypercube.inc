@@ -59,10 +59,11 @@ KERNEL_IMAGETYPE ?= "Image"
 
 SERIAL_CONSOLE = "115200 ttyS1"
 
-PREFERRED_PROVIDER_virtual/kernel = "linux-su980"
-PREFERRED_VERSION_linux-cube = "${KERNELVERSION}"
 PREFERRED_VERSION_rtl8192cu = "3.3.0"
 PREFERRED_VERSION_wscan = "20130331"
+
+PREFERRED_PROVIDER_virtual/kernel = "linux-su980"
+PREFERRED_VERSION_linux-cube = "${KERNELVERSION}"
 
 OLDEST_KERNEL = "${KERNELVERSION}"
 GCCVERSION_su980 = "4.9.4"
@@ -70,8 +71,10 @@ GLIBCVERSION_su980 = "2.19"
 
 GLIBC_EXTRA_OECONF = "--with-tls --with-__thread"
 
-DEFAULTTUNE = "cortexa9"
-
+SOC_FAMILY = "pnx8400"
+TARGET_ARCH = "arm"
+DEFAULTTUNE = "armv7a"
+TUNE_FEATURES = "cortexa9 vfp"
 require conf/machine/include/tune-cortexa9.inc
-
-TUNE_CCARGS += "${@bb.utils.contains("TUNE_FEATURES", "cortexa9", "-march=armv7-a -mtune=cortex-a9 -mfpu=vfpv3-d16 -mfloat-abi=softfp", "", d)}"
+require conf/machine/include/soc-family.inc
+TUNE_CCARGS += "-mfpu=vfpv3-d16"
