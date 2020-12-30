@@ -70,6 +70,8 @@ GLIBCVERSION_su980 = "2.19"
 
 GLIBC_EXTRA_OECONF = "--with-tls --with-__thread"
 
+SOC_FAMILY = "pnx8400"
+
 DEFAULTTUNE = "cortexa9"
 
 require conf/machine/include/tune-cortexa9.inc
