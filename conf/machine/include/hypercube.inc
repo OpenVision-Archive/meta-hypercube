@@ -22,7 +22,7 @@ EXTRA_IMAGEDEPENDS += "\
 
 DVBMEDIASINK_CONFIG = "--with-dts --with-limited-mpeg4v2 --with-eac3 --with-wma --with-wmv --with-pcm"
 
-IMAGE_FSTYPES ?= "jffs2 su980-usbimg"
+IMAGE_FSTYPES ?= "jffs2"
 
 IMAGE_CLASSES += "usb_image-su980"
 
@@ -31,7 +31,6 @@ EXTRA_IMAGECMD_jffs2 = "--disable-compressor=lzo --compression-mode=size"
 
 IMAGEDIR = "${MACHINE}/e2"
 
-# TODO: this needs fixing...
 IMAGE_CMD_jffs2_append = "; \
 	rm -f ${DEPLOY_DIR_IMAGE}/*.zip; \
 	cd ${DEPLOY_DIR_IMAGE}; \
@@ -40,8 +39,9 @@ IMAGE_CMD_jffs2_append = "; \
 	cp -fa boot.bin loader.bin upgrade.scr ${MACHINE}/; \
 	cp -fL ${KERNEL_IMAGETYPE}-${MACHINE}.bin ${IMAGEDIR}/${KERNEL_FILE}; \
 	cp -fa ${IMGDEPLOYDIR}/${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.jffs2 ${IMAGEDIR}/${ROOTFS_FILE}; \
-	echo ${IMAGE_NAME} > ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/${MACHINE}/imageversion; \
-	echo "https://forum.openvision.tech/app.php/donate" > ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/${MACHINE}/donate.txt; \
+	echo ${IMAGE_NAME} > ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/imageversion; \
+	echo "https://forum.openvision.tech/app.php/donate" > ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/donate.txt; \
+	rm -rf ${IMAGEDIR}/${MACHINE}; \
 	zip -r ${IMAGE_NAME}_usb.zip ${MACHINE}/*; \
 	rm -f ${DEPLOY_DIR_IMAGE}/*.jffs2; \
 	rm -rf ${MACHINE}; \
