@@ -59,7 +59,7 @@ KERNEL_IMAGETYPE ?= "Image"
 
 SERIAL_CONSOLE = "115200 ttyS1"
 
-PREFERRED_VERSION_rtl8192cu = "3.3.0"
+PREFERRED_VERSION_kernel-module-extrawlan-rtl8192cu = "3.3.0"
 PREFERRED_VERSION_wscan = "20130331"
 
 PREFERRED_PROVIDER_virtual/kernel = "linux-su980"
@@ -68,6 +68,8 @@ PREFERRED_VERSION_linux-cube = "${KERNELVERSION}"
 OLDEST_KERNEL = "${KERNELVERSION}"
 GCCVERSION_su980 = "4.9.4"
 GLIBCVERSION_su980 = "2.19"
+PREFERRED_VERSION_glibc_su980 = "2.19"
+PREFERRED_VERSION_glibc-initial_su980 = "2.19"
 
 GLIBC_EXTRA_OECONF = "--with-tls --with-__thread"
 
