@@ -57,8 +57,8 @@ do_install() {
 		esac
 	done
 
-	install -d ${D}${sysconfdir}/init.d
-	install -m 755 ${WORKDIR}/${INITSCRIPT_NAME} ${D}${sysconfdir}/init.d/
+	install -d ${D}${INIT_D_DIR}
+	install -m 755 ${WORKDIR}/${INITSCRIPT_NAME} ${D}${INIT_D_DIR}/
 
 	install -d ${D}${sysconfdir}/modprobe.d
 	install -m 644 ${WORKDIR}/vpmfbDrv.conf ${D}${sysconfdir}/modprobe.d
