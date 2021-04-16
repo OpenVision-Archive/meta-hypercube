@@ -53,7 +53,6 @@ IMAGE_CMD_jffs2_prepend = " \
 
 MACHINE_FEATURES += "alsa 32bpp usbhost ci oldkernel triaccel olde2api HDMI RCA YUV"
 
-DVBPROVIDER = "kernel"
 
 KERNEL_IMAGETYPE ?= "Image"
 
