@@ -51,7 +51,7 @@ IMAGE_CMD_jffs2_prepend = " \
 	rm -Rf ${IMAGE_ROOTFS}/tmp/*; \
 	"
 
-MACHINE_FEATURES += "alsa 32bpp usbhost ci oldkernel triaccel olde2api HDMI RCA YUV"
+MACHINE_FEATURES += "alsa 32bpp usbhost ci oldkernel triaccel olde2api HDMI RCA YUV wifiusblegacy"
 
 
 KERNEL_IMAGETYPE ?= "Image"
